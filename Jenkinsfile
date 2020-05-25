@@ -12,9 +12,9 @@ node{
     }
     stage('PUSH image to Docker Hub')
     {
-        withCredentials([string(credentialsId: 'RedStar@5', variable: 'DHPWD')]) 
+        withCredentials([string(credentialsId: 'DockerHubPWD', variable: 'DHPWD')]) 
         {
-            sh "docker login -u karthiksdv -p ${DHPWD}"
+            sh "docker login -u karthiksdv -p RedStar@5"
         }
         sh 'docker push karthiksdv/phpmysql_app'
     }
